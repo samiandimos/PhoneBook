@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">PhoneBook</string>
+
+    <!--Placeholders-->
+    <string name="name_surname">Name and Last name</string>
+    <string name="email">Email</string>
+    <string name="address">Address</string>
+    <string name="phone">Phone Number</string>
+    <string name="tip">Press the button if you want to add the new user</string>
+
+    <!--Buttons-->
+    <string name="add_contact_button">Add New Contact</string>
+    <string name="confirm_contact_button">Confirm New Contact</string>
+
+    <!--Radio Buttons-->
+    <string name="male_radio_button">Male</string>
+    <string name="female_radio_button">Female</string>
+
+    <!--Toasts-->
+    <string name="fill_in_prompt_toast">Please fill all the fields</string>
+    <string name="confirm_toast">New contact added!</string>
+    
+</resources>
