@@ -26,6 +26,8 @@ public class FillinActivity extends AppCompatActivity {
 
     private Button mAddContact;
 
+    public static LinkedListSet<User> mStoredUsers = new LinkedListSet<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

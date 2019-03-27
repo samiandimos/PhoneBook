@@ -1,6 +1,5 @@
 package com.example.phonebook;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,7 +19,9 @@ public class FinalInfoActivity extends AppCompatActivity {
     private TextView mPhoneTextView;
     private TextView mGenderTextView;
 
-    private String mNameInfo, mEmailInfo, mAddressInfo, mPhoneInfo, mGenderInfo;
+    private String mNameValue, mEmailValue, mAddressValue, mPhoneValue, mGenderValue;
+
+    private User mNewUser;
 
 
     @Override
@@ -35,22 +36,34 @@ public class FinalInfoActivity extends AppCompatActivity {
         mGenderTextView = (TextView) findViewById(R.id.textViewGenderInfo);
 
         Intent intent = getIntent();
-        mNameInfo = intent.getStringExtra("name");
-        mEmailInfo = intent.getStringExtra("email");
-        mAddressInfo = intent.getStringExtra("address");
-        mPhoneInfo = intent.getStringExtra("phone");
-        mGenderInfo = intent.getStringExtra("gender");
+        mNameValue = intent.getStringExtra("name");
+        mEmailValue = intent.getStringExtra("email");
+        mAddressValue = intent.getStringExtra("address");
+        mPhoneValue = intent.getStringExtra("phone");
+        mGenderValue = intent.getStringExtra("gender");
 
-        mNameTextView.setText(mNameInfo);
-        mEmailTextView.setText(mEmailInfo);
-        mAddressTextView.setText(mAddressInfo);
-        mPhoneTextView.setText(mPhoneInfo);
-        mGenderTextView.setText(mGenderInfo);
+        mNameTextView.setText(mNameValue);
+        mEmailTextView.setText(mEmailValue);
+        mAddressTextView.setText(mAddressValue);
+        mPhoneTextView.setText(mPhoneValue);
+        mGenderTextView.setText(mGenderValue);
 
         mConfirm = (Button) findViewById(R.id.confirm_Button);
         mConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // Create the new user object
+                mNewUser = new User(mNameValue, mEmailValue, mAddressValue, mPhoneValue, mGenderValue);
+
+                // Check if the new user object exists inside the List
+                if(FillinActivity.mStoredUsers.contains(mNewUser)){
+                    Toast.makeText(getApplicationContext(),"User already exists", Toast.LENGTH_SHORT).show();
+                } else{
+                    FillinActivity.mStoredUsers.add(mNewUser);
+                    Toast.makeText(getApplicationContext(), "New User added", Toast.LENGTH_SHORT).show();
+                }
+
                 Toast.makeText(getApplicationContext(), R.string.confirm_toast, Toast.LENGTH_SHORT).show();
                 Log.i("MESSAGE", "User added successfully!");
             }
