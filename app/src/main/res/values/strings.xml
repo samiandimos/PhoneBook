@@ -19,5 +19,5 @@
     <!--Toasts-->
     <string name="fill_in_prompt_toast">Please fill all the fields</string>
     <string name="confirm_toast">New contact added!</string>
-    
+
 </resources>
